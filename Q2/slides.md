@@ -1,99 +1,121 @@
 ---
+# marp: true enables Marp features.
 marp: true
+# theme: custom specifies the custom theme defined below.
 theme: custom
+# paginate: true automatically adds page numbers to each slide.
 paginate: true
-header: 'NexusCorp - Product Documentation'
+# A global footer is a better practice than adding one to each slide manually.
 footer: 'Contact: 21f3000750@ds.study.iitm.ac.in'
---
+---
+
 <!--
-This is a theme directive block. It allows you to define a custom theme using CSS.
-We are creating a theme named 'custom-theme' as specified in the front matter.
-This is where you can define the base styling for all your slides.
+This block defines a custom theme for the presentation.
+The styles here will apply to all slides unless overridden by local directives.
 -->
-
-<!-- theme: custom-theme -->
-
 <style>
-/* This is a special @theme import that imports the default Marp theme styles. */
+/* @import 'default'; is used to build upon Marp's default theme. */
 @import 'default';
 
-/* This section defines the base style for all slides. */
+/* Base styling for every slide (section). */
 section {
-background-color: #f0f4f8;
-color: #1a202c;
-font-family: 'Helvetica', 'Arial', sans-serif;
-padding: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 60px;
 }
 
-/* Styling for the main heading (h1) on the slides. */
-h1 {
-color: #2c5282;
-text-align: center;
+/* Styling for headings. */
+h1, h2, h3 {
+  color: #1a237e; /* A deep blue for strong headings. */
 }
 
-/* Styling for the secondary heading (h2) on the slides. */
-h2 {
-color: #2a69ac;
-border-bottom: 2px solid #718096;
-padding-bottom: 10px;
+/* This custom class adds a dark overlay to a slide. 
+  It's useful for making text readable over a background image.
+*/
+section.dark-overlay {
+  position: relative;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-/* Custom style class 'lead' for creating impactful text. */
-.lead {
-text-align: center;
-font-size: 1.5em;
-color: #2d3748;
+/* The ::before pseudo-element creates the actual dark layer. */
+section.dark-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Covers the entire slide. */
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
 }
 
-/* Custom style class 'highlight' for a slide with a different background. */
-.highlight {
-background-color: #e2e8f0;
+/* Ensures the slide's content appears above the dark overlay. */
+section.dark-overlay > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* A custom style for creating an 'info' blockquote. */
+blockquote.info {
+  background: #e8f0fe;
+  border-left: 6px solid #1a237e;
+  padding: 1em 1.5em;
+  color: #1a237e;
+  border-radius: 4px;
 }
 </style>
 
-<!-- This is the title slide. -->
+<!-- Slide 1: Title Slide -->
+# **QuantumLeap API**
+### Product Documentation
 
-Project Phoenix
-Next-Generation Data Analytics Platform
-<br>
-Technical Documentation
+**Technical Writer:** Gemini  
+**Version:** 1.0
 
-<!-- This slide has a background image. -->
+---
 
-<!-- The backgroundImage directive sets the image URL. -->
+<!-- Slide 2: Features Slide with Background Image -->
+<!-- 
+  Local directives starting with an underscore apply styles to a specific slide.
+  Here we set a background image, make it cover the slide, and apply our dark overlay.
+-->
+<!--
+_backgroundImage: "url('https://placehold.co/1600x900/000000/FFFFFF?text=API+Features')"
+_backgroundSize: cover
+_backgroundPosition: center
+_class: dark-overlay
+-->
 
-<!-- 'blur(5px)' is a CSS filter applied to the image. -->
+# Core Capabilities
 
-<!-- backgroundSize: cover ensures the image covers the whole slide. -->
+- **Maintainable:** Write docs in plain Markdown.
+- **Version Controlled:** Track changes easily with Git.
+- **Multi-Format Export:** Generate PDF, PPTX, and HTML effortlessly.
+- **Highly Customizable:** Full control over styling with CSS.
 
-<!-- backgroundColor is a fallback color if the image fails to load. -->
+---
 
-<h1 style="color: #fff; text-shadow: 2px 2px 4px #000;">System Architecture</h1>
+<!-- Slide 3: Technical Details Slide -->
+# Algorithmic Performance
 
-<!-- This slide uses a custom class defined in our theme. -->
+Our data caching mechanism uses a Least Recently Used (LRU) eviction policy. The time complexity for the primary operations is:
 
-<!-- The _class directive applies the 'highlight' class to this specific slide. -->
+- **Get (Retrieval):** $$O(1)$$
+- **Set (Insertion/Update):** $$O(1)$$
 
-<!-- This is an example of a local directive. -->
+This ensures high-speed access to frequently used data.
 
-<!-- _class: highlight -->
+---
 
-Core Features
-Real-time Data Processing: Ingest and analyze data streams with sub-second latency.
+<!-- Slide 4: Custom Styling Example Slide -->
+# Custom Styling in Action
 
-Scalable Infrastructure: Built on a microservices architecture for horizontal scaling.
+<blockquote class="info">
+  This is an example of an **info block**. It's perfect for highlighting important notes, warnings, or tips within your documentation.
+</blockquote>
 
-Advanced Analytics: Leverage machine learning models for predictive insights.
+---
 
-Secure & Compliant: End-to-end encryption and GDPR-ready.
+<!-- Slide 5: Closing Slide -->
+# Thank You
 
-Algorithmic Complexity
-Understanding the performance of our core algorithms is crucial for optimization. The primary sorting algorithm we use has a time complexity of:
-
-O(n \log n) $$This ensures efficient processing even with large datasets. The search functionality utilizes a hash map, providing an average time complexity of: $$O(1)
-<!-- This slide uses another custom class for a different layout/style. -->
-
-<!-- _class: lead -->
-
-Questions?
-Feel free to reach out for more details.
+For questions or support, please reach o
