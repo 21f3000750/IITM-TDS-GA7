@@ -1,17 +1,10 @@
-marp: true is a necessary directive to enable Marp features.
+---
 marp: true
-
-paginate: true enables page numbering on the slides.
+theme: custom
 paginate: true
-
-header provides content for the top of each slide.
 header: 'NexusCorp - Product Documentation'
-
-footer provides content for the bottom of each slide, including the email address.
 footer: 'Contact: 21f3000750@ds.study.iitm.ac.in'
-
-theme directive specifies the theme to be used. Here, we're using a custom one.
-theme: custom-theme
+--
 <!--
 This is a theme directive block. It allows you to define a custom theme using CSS.
 We are creating a theme named 'custom-theme' as specified in the front matter.
